@@ -1,9 +1,12 @@
 package inventorysystems;
 
+import java.awt.Image;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /*
@@ -24,6 +27,11 @@ public class CreateInventory extends javax.swing.JFrame {
     public CreateInventory() {
         initComponents();
         conn = new Connect();
+        
+        Icon i = btnInventory.getIcon();
+        ImageIcon icon = (ImageIcon) i;
+        Image image = icon.getImage().getScaledInstance(btnInventory.getWidth(), btnInventory.getHeight(), Image.SCALE_SMOOTH);
+        btnInventory.setIcon(new ImageIcon(image));
     }
 
     /**
@@ -35,42 +43,44 @@ public class CreateInventory extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        tfInventoryName = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
         tfSubID = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         btnCheck = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         taDescription = new javax.swing.JTextArea();
         btnCreate = new javax.swing.JButton();
         btnSubscriber = new javax.swing.JButton();
         btnDisplay = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tfInventoryName = new javax.swing.JTextField();
+        jPanel8 = new javax.swing.JPanel();
+        btnInventory = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(59, 59, 59));
+        setMaximumSize(new java.awt.Dimension(0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Create Inventory");
+        jPanel1.setBackground(new java.awt.Color(31, 31, 31));
 
-        jLabel2.setText("Subscription ID:");
-
-        jLabel3.setText("Inventory Name:");
-
-        jLabel4.setText("Storage Description:");
-
-        tfInventoryName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfInventoryNameActionPerformed(evt);
-            }
-        });
-
+        tfSubID.setBackground(new java.awt.Color(255, 255, 255));
+        tfSubID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tfSubID.setForeground(new java.awt.Color(31, 31, 31));
         tfSubID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSubIDActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Subscription ID:");
+
+        btnCheck.setBackground(new java.awt.Color(59, 59, 59));
+        btnCheck.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnCheck.setForeground(new java.awt.Color(255, 255, 255));
         btnCheck.setText("Check");
         btnCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,12 +88,18 @@ public class CreateInventory extends javax.swing.JFrame {
             }
         });
 
+        taDescription.setBackground(new java.awt.Color(255, 255, 255));
         taDescription.setColumns(20);
+        taDescription.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        taDescription.setForeground(new java.awt.Color(31, 31, 31));
         taDescription.setRows(5);
         taDescription.setEnabled(false);
         taDescription.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(taDescription);
 
+        btnCreate.setBackground(new java.awt.Color(59, 59, 59));
+        btnCreate.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnCreate.setForeground(new java.awt.Color(255, 255, 255));
         btnCreate.setText("Create");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +107,9 @@ public class CreateInventory extends javax.swing.JFrame {
             }
         });
 
+        btnSubscriber.setBackground(new java.awt.Color(59, 59, 59));
+        btnSubscriber.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnSubscriber.setForeground(new java.awt.Color(255, 255, 255));
         btnSubscriber.setText("Subscriber");
         btnSubscriber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +117,9 @@ public class CreateInventory extends javax.swing.JFrame {
             }
         });
 
+        btnDisplay.setBackground(new java.awt.Color(59, 59, 59));
+        btnDisplay.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        btnDisplay.setForeground(new java.awt.Color(255, 255, 255));
         btnDisplay.setText("Display");
         btnDisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,65 +127,138 @@ public class CreateInventory extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Create Inventory");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Inventory Name:");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Storage Description:");
+
+        tfInventoryName.setBackground(new java.awt.Color(255, 255, 255));
+        tfInventoryName.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        tfInventoryName.setForeground(new java.awt.Color(31, 31, 31));
+        tfInventoryName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfInventoryNameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(38, 38, 38))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfInventoryName, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfSubID, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSubscriber, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(137, 137, 137)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnSubscriber, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(tfSubID)
+                                .addGap(12, 12, 12)
+                                .addComponent(tfInventoryName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108)))))
+                .addGap(52, 52, 52))
+        );
+
+        jPanel8.setBackground(new java.awt.Color(59, 59, 59));
+
+        btnInventory.setBackground(new java.awt.Color(59, 59, 59));
+        btnInventory.setForeground(new java.awt.Color(59, 59, 59));
+        btnInventory.setIcon(new javax.swing.ImageIcon("C:\\Users\\daugd\\Desktop\\oopFiles\\Dark Green Modern Smart Home Dashboard Desktop Prototype (1 × 1 in).png")); // NOI18N
+        btnInventory.setBorder(null);
+        btnInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventoryActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(btnInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(btnSubscriber)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDisplay))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfInventoryName))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(tfSubID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCheck))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
-                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tfSubID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCheck))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(tfInventoryName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnDisplay)
-                        .addComponent(btnCreate))
-                    .addComponent(btnSubscriber))
-                .addContainerGap(35, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -182,12 +277,13 @@ public class CreateInventory extends javax.swing.JFrame {
         try {
         int subscriberID = Integer.parseInt(tfSubID.getText());
         String inventoryName = tfInventoryName.getText();
-        if(Integer.toString(subscriberID).isBlank() || Character.isLetter(Integer.toString(subscriberID).charAt(0))) {
+        if(Integer.toString(subscriberID).isEmpty() || Character.isLetter(Integer.toString(subscriberID).charAt(0)) || inventoryName.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Invalid Input");
+            tfInventoryName.setText("");
             tfSubID.setText("");
         } else if(conn.checkSubscriber(subscriberID) != null) {
             boolean res = conn.createInventory(subscriberID, inventoryName);
-            if(res == false) taDescription.setText("Inventory exists!");
+            if(res == false) taDescription.setText("Inventory creation failed!");
             else taDescription.setText("Inventory " + inventoryName + " created!");
         } else JOptionPane.showMessageDialog(null, "Subscriber does not exist!");
         } catch(Exception e) {
@@ -217,6 +313,7 @@ public class CreateInventory extends javax.swing.JFrame {
 
     private void btnSubscriberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubscriberActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         Subscribe s = new Subscribe();
         s.show();
     }//GEN-LAST:event_btnSubscriberActionPerformed
@@ -225,17 +322,38 @@ public class CreateInventory extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         int subscriberID = Integer.parseInt(tfSubID.getText());
+        String inventoryName = tfInventoryName.getText();
         ResultSet res = conn.checkSubscriber(subscriberID);
-        if(Integer.toString(subscriberID).isBlank() || Character.isLetter(Integer.toString(subscriberID).charAt(0)) || res == null) {
+        
+        if(!conn.checkInventoryName(subscriberID, inventoryName)) {
+            JOptionPane.showMessageDialog(null, "Inventory does not exist!");
+            tfInventoryName.setText("");
+            return;
+        }
+        
+        if(Integer.toString(subscriberID).isBlank() || inventoryName.isBlank() || Character.isLetter(Integer.toString(subscriberID).charAt(0)) || res == null) {
             JOptionPane.showMessageDialog(null, "Invalid Input");
             tfSubID.setText("");
+            tfInventoryName.setText("");
+            return;
         } else {
-            DisplayTable display = new DisplayTable(tfInventoryName.getText());
+            int inventoryID = conn.getInventoryID(subscriberID, inventoryName);
+            DisplayTable display = new DisplayTable(inventoryID, inventoryName);
             display.show();
         } } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "An error occured, please try again.");
+            tfSubID.setText("");
+            tfInventoryName.setText("");
+            return;
         }
+        
+        setVisible(false);
+        
     }//GEN-LAST:event_btnDisplayActionPerformed
+
+    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInventoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,11 +392,14 @@ public class CreateInventory extends javax.swing.JFrame {
     private javax.swing.JButton btnCheck;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDisplay;
+    private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnSubscriber;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea taDescription;
     private javax.swing.JTextField tfInventoryName;

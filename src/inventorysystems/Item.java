@@ -24,6 +24,13 @@ public class Item {
         this.inventoryID = inventoryID;
         this.isVisible = isVisible;
     }
+    public Item(int itemID, String name, String description, int quantity, boolean isVisible) {
+        this.itemID = itemID;
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+        this.isVisible = isVisible;
+    }
 
     public int getItemID() {
         return itemID;
